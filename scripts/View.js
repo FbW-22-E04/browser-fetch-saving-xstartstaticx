@@ -1,13 +1,15 @@
 class View {
-    constructor() {
-        this.moviesSection = document.querySelector(".movies");
-    }
+  constructor() {
+    this.moviesSection = document.querySelector(".movies");
+  }
 
-    displayMovieOnPage(data) {
-        if (data.Response === "False") {
-            alert("Sorry, we can't find this movie!");
-        } else {
-            this.moviesSection.insertAdjacentHTML("beforeend", `
+  displayMovieOnPage(data) {
+    if (data.Response === "False") {
+      alert("Sorry, we can't find this movie!");
+    } else {
+      this.moviesSection.insertAdjacentHTML(
+        "beforeend",
+        `
                 <section class="movie-display"> 
                     <section class="movie-meta">
                         <h2>${data.Title}</h2>
@@ -17,13 +19,14 @@ class View {
                     </section>
                     <p>${data.Plot}</p>
                 </section>
-            `)
-        }
+            `
+      );
     }
+  }
 
-    removeDisplay() {
-        this.moviesSection.innerHTML = "";
-    }
+  removeDisplay() {
+    this.moviesSection.innerHTML = "";
+  }
 }
 
 console.log("Hello from View.js");
